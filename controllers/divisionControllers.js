@@ -1,4 +1,4 @@
-exports.createCategory=async(req,res,next) =>{
+exports.createDivision=async(req,res,next) =>{
     try {
         
     } catch (error) {
@@ -10,7 +10,7 @@ exports.createCategory=async(req,res,next) =>{
     }
 }
 
-exports.updateCategory=async(req,res,next) =>{
+exports.updateDivision=async(req,res,next) =>{
     try {
         
     } catch (error) {
@@ -22,7 +22,7 @@ exports.updateCategory=async(req,res,next) =>{
     }
 }
 
-exports.deleteCategory=async(req,res,next) =>{
+exports.deleteDivision=async(req,res,next) =>{
     try {
         
     } catch (error) {
@@ -34,7 +34,7 @@ exports.deleteCategory=async(req,res,next) =>{
     }
 }
 
-exports.getCategory=async(req,res,next) =>{
+exports.getDivision=async(req,res,next) =>{
     try {
         
     } catch (error) {
