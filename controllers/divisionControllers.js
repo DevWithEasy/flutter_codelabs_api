@@ -63,6 +63,9 @@ exports.deleteDivision=async(req,res,next) =>{
 
 exports.getDivision=async(req,res,next) =>{
     try {
+        const divisions = await Division.find()
+
+        return res.json(divisions)
         
     } catch (error) {
         return res.status(500).json({
