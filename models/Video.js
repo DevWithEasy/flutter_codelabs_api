@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
 
-const demoSchema = mongoose.Schema({
-    hello:{
+const videoSchema = mongoose.Schema({
+    course:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: 'Course'
+    },
+    videoId:{
         type: String,
         required:true
-    }
+    },
 },{
     timestamps:true
 })
 
-const Demo = mongoose.model('Demo',demoSchema)
-module.exports = Demo
+const Video = mongoose.model('Video',videoSchema)
+module.exports = Video

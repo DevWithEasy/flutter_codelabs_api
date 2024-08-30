@@ -1,9 +1,29 @@
-const demoRouter = require('./userRouters')
+const userRouter = require('./userRouters')
+const categoryRouter = require('./categoryRouters')
+const courseRouter = require('./courseRouters')
+const videoRouter = require('./videoRouters'); 
+const divisionRouter = require('./divisionRouters'); 
 
 const routers = [
     {
-        path : '/api/demo',
-        handler : demoRouter
+        path : '/api/user',
+        handler : userRouter
+    },
+    {
+        path : '/api/division',
+        handler : divisionRouter
+    },
+    {
+        path : '/api/category',
+        handler : categoryRouter
+    },
+    {
+        path : '/api/course',
+        handler : courseRouter
+    },
+    {
+        path : '/api/video',
+        handler : videoRouter
     },
     {
         path : '/',
