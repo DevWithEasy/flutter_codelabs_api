@@ -1,8 +1,10 @@
-const Course = require('../models/Divison')
+const Course = require('../models/Course')
 exports.createCourse=async(req,res,next) =>{
     try {
+        const {catId} = req.params
         const newCourse = new Course({
-            ...req.body
+            ...req.body,
+            category : catId
         })
 
         await newCourse.save()
@@ -63,7 +65,8 @@ exports.deleteCourse=async(req,res,next) =>{
 
 exports.getCourse=async(req,res,next) =>{
     try {
-        const Courses = await Course.find()
+        const {catId} = req.params
+        const Courses = await Course.find({category : catId})
 
         return res.json(Courses)
         

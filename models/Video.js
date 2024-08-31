@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const videoSchema = mongoose.Schema({
+    orderNo:{
+        type: Number,
+        required:true
+    },
     course:{
         type: mongoose.Schema.Types.ObjectId,
         required: 'Course'
@@ -9,6 +13,10 @@ const videoSchema = mongoose.Schema({
         type: String,
         required:true
     },
+    isComplete : {
+        type: Boolean,
+        default: false
+    }
 },{
     timestamps:true
 })

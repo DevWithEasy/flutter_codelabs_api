@@ -14,8 +14,9 @@ const courseSchema = mongoose.Schema({
         required:true
     },
     lesson:{
-        type: String,
-        required:true
+        type: Number,
+        required:true,
+        default: 0
     },
     category:{
         type: mongoose.Schema.Types.ObjectId,

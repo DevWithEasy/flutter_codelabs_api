@@ -2,9 +2,9 @@ const { createCourse, updateCourse, deleteCourse, getCourse } = require('../cont
 
 const router = require('express').Router()
 
-router.post('/',createCourse)
+router.post('/:catId',createCourse)
 router.put('/:id',updateCourse)
 router.delete('/:id',deleteCourse)
-router.get('/',getCourse)
+router.get('/:catId',getCourse)
 
 module.exports = router
