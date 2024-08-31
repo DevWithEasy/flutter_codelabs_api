@@ -1,3 +1,4 @@
+const Category = require('../models/Category')
 const Division = require('../models/Divison')
 exports.createDivision=async(req,res,next) =>{
     try {
@@ -61,17 +62,24 @@ exports.deleteDivision=async(req,res,next) =>{
     }
 }
 
-exports.getDivision=async(req,res,next) =>{
+exports.getDivision = async (req, res, next) => {
     try {
-        const divisions = await Division.find()
+        const divisions = await Division.find();
 
-        return res.json(divisions)
-        
+        const divisionsWithCategories = await Promise.all(divisions.map(async (division) => {
+            const categories = await Category.find({ division: division._id });
+            return {
+                ...division._doc,
+                categories
+            };
+        }));
+
+        return res.json(divisionsWithCategories);
     } catch (error) {
         return res.status(500).json({
-            success : false,
-            status : 500,
-            message : error.message
-        })
+            success: false,
+            status: 500,
+            message: error.message
+        });
     }
 }
