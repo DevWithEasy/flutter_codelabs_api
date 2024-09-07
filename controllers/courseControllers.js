@@ -66,7 +66,7 @@ exports.deleteCourse=async(req,res,next) =>{
 exports.getCourse=async(req,res,next) =>{
     try {
         const {catId} = req.params
-        const Courses = await Course.find({category : catId})
+        const Courses = await Course.find({category : catId}).populate('category', '-_id image')
 
         return res.json(Courses)
         
