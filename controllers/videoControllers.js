@@ -1,3 +1,4 @@
+const Course = require('../models/Course');
 const Video = require('../models/Video');
 exports.createVideo=async(req,res,next) =>{
     try {
@@ -12,6 +13,12 @@ exports.createVideo=async(req,res,next) =>{
         })
 
         await newVideo.save()
+
+        await Course.findByIdAndUpdate(courseId,{
+            $inc :{
+                lesson : 1
+            }
+        })
 
         return res.status(200).json({
             success : true,
@@ -52,7 +59,14 @@ exports.deleteVideo=async(req,res,next) =>{
     try {
         const {id} = req.params
 
+        const video = await Video.findById(id)
         await Video.findByIdAndDelete(id)
+
+        await Course.findByIdAndUpdate(video.course,{
+            $inc :{
+                lesson : 1
+            }
+        })
 
         return res.status(200).json({
             success : true,
